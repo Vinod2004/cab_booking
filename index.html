@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab Booking System</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 60px 0;
+            display: none; /* Hidden by default */
+        }
+
+        section.active {
+            display: block; /* Show active section */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Home Section */
+        #home {
+            background: url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 100vh;
+            position: relative;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #home h2 {
+            font-size: 2.5rem;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #f4b41a;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin: 20px 0;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            padding: 10px;
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        input[type="submit"] {
+            background: #35424a;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #35424a;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Background Images for Other Sections */
+        #about, #contact, #drivers, #book {
+            background: url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        #about, #contact, #drivers, #book {
+            height: 100vh;
+        }
+
+        section h2, section p {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <h1>Cab Booking System</h1>
+            <nav>
+                <ul>
+                    <li><a onclick="navigateTo('home')">Home</a></li>
+                    <li><a onclick="navigateTo('about')">About</a></li>
+                    <li><a onclick="navigateTo('contact')">Contact</a></li>
+                    <li><a onclick="navigateTo('drivers')">Driver Details</a></li>
+                    <li><a onclick="navigateTo('book')">Book a Ride</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <div class="overlay">
+            <div class="container">
+                <h2>Welcome to Your Comfortable Ride</h2>
+                <p>Book your cab with just a few clicks. Reliable drivers, clean cars, and affordable prices.</p>
+                <div class="btn" onclick="navigateTo('book')">Book Now</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to our cab booking service. Established in 2020, we have been dedicated to providing reliable, comfortable, and safe transportation. Our fleet includes a variety of vehicles to suit your needs, from economy cars to luxury SUVs.</p>
+            <p>Our mission is to make your travel experience seamless and enjoyable. Our team of professional drivers is trained to provide exceptional service, ensuring that you reach your destination on time and in comfort.</p>
+            <p>We continuously strive to improve our services based on customer feedback and technological advancements. Whether you need a ride to the airport, a business meeting, or a special event, we are here to serve you 24/7.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, please don't hesitate to reach out to us:</p>
+            <p><strong>Email:</strong> support@cabbooking.com</p>
+            <p><strong>Phone:</strong> +1234567890</p>
+            <p><strong>Address:</strong> 123 Main Street, City, Country, 12345</p>
+            <p><strong>Office Hours:</strong> Monday - Friday: 9 AM - 6 PM, Saturday - Sunday: Closed</p>
+        </div>
+    </section>
+
+    <!-- Driver Details Section -->
+    <section id="drivers">
+        <div class="container">
+            <h2>Meet Our Drivers</h2>
+            <p>John Doe - 5 years of experience. Known for his punctuality and friendly demeanor.</p>
+            <p>Jane Smith - 3 years of experience. Highly rated for her professionalism and safe driving.</p>
+        </div>
+    </section>
+
+    <!-- Book a Ride Section -->
+    <section id="book">
+        <div class="container">
+            <h2>Book a Ride</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="pickup">Pickup Location</label>
+                    <input type="text" id="pickup" name="pickup" required>
+                </div>
+                <div class="form-group">
+                    <label for="drop">Drop Location</label>
+                    <input type="text" id="drop" name="drop" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="car">Select Car</label>
+                    <select id="car" name="car" required>
+                        <option value="economy">Economy Car</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                    </select>
+                </div>
+                <input type="submit" value="Confirm Booking">
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cab Booking System</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Page Navigation -->
+    <script>
+        function navigateTo(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Form submission handler
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Booking confirmed! You will receive a confirmation message shortly.');
+            navigateTo('home');
+        });
+    </script>
+
+</body>
+</html>
